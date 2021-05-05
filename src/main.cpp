@@ -4,17 +4,28 @@
 int main(){
   std::cout << "Snake_passageway" << std::endl;
   int arrSnake[5][5];
-  int count = -1;
+  int count = 0;
   for(int i = 0; i < 5; i++){
     for(int j = 0; j < 5; j++){
       arrSnake[i][j] = count++;
-      std::cout << count << "\t";
+    }
+  }
+
+  for(int i = 0; i < 5; i++){
+    if(i % 2 == 0){
+      for(int j = 0; j < 5; j++)
+        std::cout << arrSnake[i][j] << " ";
+    }
+    if(i % 2 == 1){ 
+      for(int j = 5 - 1; j >= 0; j--) 
+        std::cout << arrSnake[i][j] << " ";
     }
     std::cout << std::endl;
-  }
+   }
   
   return 0;
 }
+
 
 
 // Довольно абстрактная, но интересная задача. 
