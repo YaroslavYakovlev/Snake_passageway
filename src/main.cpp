@@ -1,28 +1,31 @@
 #include <iostream>
 #include <vector>
 
+void fillingArray(int (&arr)[5][5]){
+  int k=0;
+  for (int i=0; i<5; i++){
+    for (int j=0; j<5; j++) {
+      arr[i][j]=(i%2?(i+1)*5-j-1:k);
+      k++;
+    }
+  }
+}
+
+void printArr(int (&arr)[5][5]){
+  for(int i = 0; i < 5; i++){
+    for(int j = 0; j < 5; j++){
+      std::cout << arr[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
+}
+
 int main(){
   std::cout << "Snake_passageway" << std::endl;
   int arrSnake[5][5];
-  int count = 0;
-  for(int i = 0; i < 5; i++){
-    for(int j = 0; j < 5; j++){
-      arrSnake[i][j] = count++;
-    }
-  }
+  fillingArray(arrSnake);
+  printArr(arrSnake);
 
-  for(int i = 0; i < 5; i++){
-    if(i % 2 == 0){
-      for(int j = 0; j < 5; j++)
-        std::cout << arrSnake[i][j] << " ";
-    }
-    if(i % 2 == 1){ 
-      for(int j = 5 - 1; j >= 0; j--) 
-        std::cout << arrSnake[i][j] << " ";
-    }
-    std::cout << std::endl;
-   }
-  
   return 0;
 }
 
